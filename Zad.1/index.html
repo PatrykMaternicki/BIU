@@ -1,0 +1,33 @@
+<html>
+<style>
+  table {
+    width: 100%;
+    text-align: center;
+    color: gray;
+    border: 1px solid silver;
+  }
+</style>
+    <body>
+        <button id='next'>next</button><button id='back'>prev</button>
+        <button data-stock="25">Ustaw 25</button>
+        <button data-stock="50">Ustaw 50</button>
+        <button data-stock="75">Ustaw 75</button>
+        <button data-stock="100">Ustaw 100</button>
+        <button data-action="sortByName"> Sortuj po imienu </button>
+        <button data-action="sortBySurName"> Sortuj po nazwisku</button>
+        <button data-action="sortByAge"> Sortuj po nazwisku</button>
+        <button data-action="sortByBirthday"> Sortuj po nazwisku</button>
+        <button data-action="sortByGender"> Sortuj po gender</button>
+        <button data-action="sortByIncome"> Sortuj po dochodzie</button>
+        <button data-action="sortByEmail"> Sortuj po email</button>
+        <button data-action="reset"> Reset </button>
+        <label for="filter">filtruj po imieniu</label>
+        <input type="text" for="filter" id="filter" placeholder="wpisz tekst" />
+        <div id="table"></div>
+        <script type="application/javascript" src="scripts/DATA.js"></script>
+        <script type="application/javascript" src="scripts/Comparator.js"></script>
+        <script type="application/javascript" src="scripts/Filter.js"></script>
+        <script type="application/javascript" src="scripts/PeopleViewModel.js"></script>
+        <script type="application/javascript" src="scripts/scripts.js"></script>
+    </body>
+</html>
