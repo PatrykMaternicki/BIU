@@ -1,0 +1,25 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "go": "concurrently \"webpack -w\" \"node server.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^2.0.41",
+    "concurrently": "^3.1.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "jquery": "^3.2.1",
+    "live-server": "^1.1.0",
+    "ts-loader": "^2.0.2",
+    "typescript": "^2.0.10",
+    "webpack": "^2.3.0"
+  },
+  "dependencies": {
+    "bootswatch": "^3.3.7"
+  }
+}

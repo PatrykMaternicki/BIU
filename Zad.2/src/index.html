@@ -1,0 +1,66 @@
+<html>
+
+   <head>
+       <link rel="stylesheet" href="components/bootswatch/slate/bootstrap.min.css"/>
+       <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body>
+
+       <div class="container">
+          <div class="row">
+              <div class="col-md-2 fixed">
+                  <form id="form" class="form">
+
+                      <div class="form-group id=">
+                          <label class="form-label">Name
+                          <input required type="text" class="form-control js-input-name"/></label>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Surnamee
+                          <input required type="text" class="form-control"/></label>
+                      </div>
+                      <div class="form-group">
+                          <label class="form-label">Age
+                          <input required type="text" class="form-control"/></label>
+                      </div>
+                      <div class="form-group js-adv-search">
+                          <label class="form-label">Gender
+                          <input required type="text" class="form-control js-input-name"/></label>
+                      </div>
+                      <div class="form-group js-adv-search">
+                          <label class="form-label">Email
+                          <input required type="text" class="form-control"/></label>
+                      </div>
+                      <div class="form-group js-adv-search">
+                          <label class="form-label">Birthday
+                          <input required type="text" class="form-control"/></label>
+                      </div>
+
+                      <div class="form-group">
+                          <button id="search" class="btn btn-lg btn-warning js-search-btn">
+                          <span class="glyphicon glyphicon-search"></span>
+                          Search</button>
+                      </div>
+                  </form>
+              </div>
+              <div class="col-md-10 col-md-offset-3">
+                <div id="table"></div>
+                <button id="js-button-prev" class="btn btn-md btn-info">
+                <span class="glyphicon glyphicon-triangle-left"></span>
+                PREV</button>
+                <input type="button" value="10" class="btn btn-md btn-info stock-records" />
+                <input type="button" value="25" class="btn btn-md btn-info stock-records" />
+                <input type="button" value="50" class="btn btn-md btn-info stock-records" />
+                <input type="button" value="100" class="btn btn-md btn-info stock-records" />
+                <button id="js-button-next" class="btn btn-md btn-info pull-right" >
+                NEXT
+                <span class="glyphicon glyphicon-triangle-right "></span></button>
+              </div>
+          </div>
+
+       </div>
+
+        <script type="application/javascript" src="scripts/bundle.js"></script>
+
+    </body>
+</html>
