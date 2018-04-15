@@ -1,0 +1,37 @@
+
+<h1 *ngIf="!isEditorVisible">{{post.title}}</h1>
+<h2>{{post.date | date:'shortDate' }}</h2>
+<!-- <app-blog-post-creator></app-blog-post-creator> -->
+<input *ngIf="isEditorVisible" type="text" [(ngModel)]="post.title"/>
+<button (click)="toggleEditMode()">{{config.state}}</button>
+<span>{{post.content}}</span>
+<h4>Komentarze</h4>
+<app-blog-post-creator (activeSetComment)="setComment($event)" [mode]="config.mode"></app-blog-post-creator>
+<ul>
+  <li *ngFor="let comment of post.comments">
+    <app-blog-comment
+     [comment] = "comment"
+     (activeEditAction)="editionComment($event)"
+     (activeRemoveAction)="removeComment($event)"
+     (activeSubCommentAction)="setSubComment($event)"
+     >
+   </app-blog-comment>
+    <ul>
+      <li *ngFor="let subComment of comment.subComments">
+        <app-blog-comment
+         [comment] = "subComment"
+         (activeEditAction)="editionComment($event)"
+         (activeRemoveAction)="removeComment($event)"
+         (activeSubCommentAction)="setSubComment($event)"
+         >
+        </app-blog-comment>
+      </li>
+    </ul>
+  <li>
+</ul>
+<app-blog-edit-form
+  [editComment]="editComment"
+  *ngIf="config.edit"
+  (editedComment)="updateComment($event)"
+  >
+</app-blog-edit-form>

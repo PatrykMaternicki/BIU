@@ -1,0 +1,14 @@
+<form #formEditComment="ngForm" (ngSubmit)="setEditComment(formEditComment, editComment.id, editComment.publishedDate)" novalidate>
+  <div>
+    <label for="name">
+      Twój nick: <input [(ngModel)]="editComment.nameAutor" id="name" name="autor" type="text"/>
+    </label>
+  </div>
+  <div>
+    <div>
+      <label for="message">Wiadomosc</label>
+    </div>
+    <textarea [(ngModel)]="editComment.textComment" name="message" id="message"></textarea>
+  </div>
+  <button>Potwierdz</button>
+</form>

@@ -1,0 +1,15 @@
+<h3>Dodaj komentarz</h3>
+<form #formComment="ngForm" (ngSubmit)="setCommentAction(formComment)" novalidate>
+  <div>
+    <label for="name">
+      Twój nick: <input ngModel id="name" name="autor" type="text"/>
+    </label>
+  </div>
+  <div>
+    <div>
+      <label for="message">wiadomosc</label>
+    </div>
+    <textarea ngModel name="message" id="message"></textarea>
+  </div>
+  <button>Dodaj komentarz</button>
+</form>
