@@ -8,12 +8,17 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 export class BlogPostCreatorComponent implements OnInit {
 
   @Output() activeSetComment = new EventEmitter<NgForm>();
+  @Output() activeSetSubComment = new EventEmitter<NgForm>();
+  @Output() activeToggleSetComment = new EventEmitter<>();
   @Input() mode: string;
+  @Input() id: number;
 
   setCommentAction(form: NgForm): void {
-    console.log('stan', this.mode);
     form.value.mode = this.mode;
-    this.activeSetComment.emit(form);
+    form.value.id  = !this.id ? 0 : this.id;
+    let emitter = this.mode === 'deeper' ? this.activeSetSubComment : this.activeSetComment;
+    emitter.emit(form);
+    this.activeToggleSetComment.emit();
   }
 
   ngOnInit() {

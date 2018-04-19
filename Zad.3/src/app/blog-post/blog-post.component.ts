@@ -31,8 +31,18 @@ export class BlogPostComponent implements OnInit {
     this.config.state = this.isEditorVisible ? 'ukryj edycje' : 'zakryj edycje';
   }
 
+  setSubComment(emitData: NgForm): void {
+    let comment = new AutorComment (
+      this.counter,
+      emitData.value.autor,
+      new Date(),
+      emitData.value.message
+    );
+    this.post.comments[emitData.value.id].subComments.push(comment);
+    emitData.resetForm();
+  }
+
   setComment(formComment: NgForm): void {
-    console.log(formComment.value.mode);
     let comment = new AutorComment(
       this.counter,
       formComment.value.autor,

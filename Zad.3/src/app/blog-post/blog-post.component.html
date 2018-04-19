@@ -11,6 +11,7 @@
   <li *ngFor="let comment of post.comments">
     <app-blog-comment
      [comment] = "comment"
+     [hideEditOption] = "false"
      (activeEditAction)="editionComment($event)"
      (activeRemoveAction)="removeComment($event)"
      (activeSubCommentAction)="setSubComment($event)"
@@ -20,10 +21,7 @@
       <li *ngFor="let subComment of comment.subComments">
         <app-blog-comment
          [comment] = "subComment"
-         (activeEditAction)="editionComment($event)"
-         (activeRemoveAction)="removeComment($event)"
-         (activeSubCommentAction)="setSubComment($event)"
-         >
+         [hideEditOption] = "true">
         </app-blog-comment>
       </li>
     </ul>

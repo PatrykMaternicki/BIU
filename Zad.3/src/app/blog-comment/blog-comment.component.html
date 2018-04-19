@@ -1,7 +1,13 @@
 <p>{{comment.nameAutor}}</p>
 <p>{{comment.publishedDate |  date:'shortDate' }}</p>
 <p>{{comment.textComment}}</p>
-<button (click)="setRemoveAction(comment.id)">Usun komentarz</button>
-<button (click)="setEditAction(comment.id)">Edytuj komentarz</button>
-<button (click)="toggleSetComment()">Dodaj komentarz do komentarza</button>
-<app-blog-post-creator *ngIf="activeForm" [mode]="config.mode"></app-blog-post-creator>
+<button *ngIf="!hideEditOption" (click)="setRemoveAction(comment.id)">Usun komentarz</button>
+<button *ngIf="!hideEditOption" (click)="setEditAction(comment.id)">Edytuj komentarz</button>
+<button *ngIf="!hideEditOption" (click)="toggleSetComment()">Dodaj komentarz do komentarza</button>
+<app-blog-post-creator
+  *ngIf="activeForm"
+  [mode]="config.mode"
+  [id] = "comment.id"
+  (activeSetSubComment) = "emitToPostComponent($event)"
+  (activeToggleSetComment) = "toggleSetComment()">
+</app-blog-post-creator>

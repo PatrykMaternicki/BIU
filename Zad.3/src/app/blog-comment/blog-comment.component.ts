@@ -12,6 +12,7 @@ export class BlogCommentComponent implements OnInit {
     mode: 'deeper'
   }
   @Input() comment:string;
+  @Input() hideEditOption: boolean;
   @Output() activeRemoveAction = new EventEmitter<number>();
   @Output() activeEditAction = new EventEmitter<number>();
   @Output() activeSubCommentAction = new EventEmitter<number>();
@@ -24,13 +25,14 @@ export class BlogCommentComponent implements OnInit {
     this.activeEditAction.emit(id);
   }
 
-  setSubCommentAction(id: number): void {
-    this.activeSubCommentAction(id);
-  }
-
   toggleSetComment(){
     this.activeForm = !this.activeForm;
   }
+
+  emitToPostComponent(emitData: NgForm) : void {
+    this.activeSubCommentAction.emit(emitData);
+  }
+
   ngOnInit() {
 
   }
