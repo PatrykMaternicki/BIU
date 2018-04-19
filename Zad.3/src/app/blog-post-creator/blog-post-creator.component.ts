@@ -15,6 +15,7 @@ export class BlogPostCreatorComponent implements OnInit {
 
   setCommentAction(form: NgForm): void {
     form.value.mode = this.mode;
+    console.log('ID', this.id);
     form.value.id  = !this.id ? 0 : this.id;
     let emitter = this.mode === 'deeper' ? this.activeSetSubComment : this.activeSetComment;
     emitter.emit(form);

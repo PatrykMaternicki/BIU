@@ -9,6 +9,7 @@
 <app-blog-post-creator (activeSetComment)="setComment($event)" [mode]="config.mode"></app-blog-post-creator>
 <ul>
   <li *ngFor="let comment of post.comments">
+    {{ comment.textComment }}
     <app-blog-comment
      [comment] = "comment"
      [hideEditOption] = "false"

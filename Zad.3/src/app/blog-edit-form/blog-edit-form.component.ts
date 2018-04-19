@@ -13,9 +13,11 @@ export class BlogEditFormComponent implements OnInit {
    constructor() { }
 
    setEditComment(editCommentForm : ngForm, id: number, publishedDate: Date): void {
-      let comment = new AutorComment(id, editCommentForm.value.autor, publishedDate, editCommentForm.value.message);
+      editCommentForm.value.id = id;
+      editCommentForm.value.publishedDate = publishedDate;
+      this.editedComment.emit(editCommentForm);
       editCommentForm.resetForm();
-      this.editedComment.emit(comment);
+
    }
 
   ngOnInit() {

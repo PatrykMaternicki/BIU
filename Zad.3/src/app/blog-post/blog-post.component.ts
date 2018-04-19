@@ -33,31 +33,23 @@ export class BlogPostComponent implements OnInit {
 
   setSubComment(emitData: NgForm): void {
     let comment = new AutorComment (
-      this.counter,
       emitData.value.autor,
       new Date(),
       emitData.value.message
     );
-    this.post.comments[emitData.value.id].subComments.push(comment);
+    let index = this.post.comments.findIndex(item => item.id === emitData.value.id);
+    this.post.comments[index].subComments.push(comment[0]);
     emitData.resetForm();
   }
 
   setComment(formComment: NgForm): void {
     let comment = new AutorComment(
-      this.counter,
       formComment.value.autor,
       new Date(),
       formComment.value.message
     );
-    if (formComment.value.mode === 'smosh'){
-      this.counter++;
-      this.post.comments.push(comment);
-      formComment.resetForm();
-    } else if (formComment.value.mode === 'deeper') {
-      this.subCounter++;
-      this.post.comments.subComments.push(comment);
-      formComment.resetForm();
-    }
+    this.post.comments.push(comment);
+    formComment.resetForm()
   }
 
   removeComment(id: number): void {
@@ -70,9 +62,16 @@ export class BlogPostComponent implements OnInit {
     this.editComment = foundedComment[0];
   }
 
-  updateComment(value: AutorComment) {
-    let index = this.post.comments.findIndex(item => item.id === value.id);
-    this.post.comments[index] = value;
+  updateComment(emitData: NgForm): void {
+    let index = this.post.comments.findIndex(item => item.id === emitData.value.id);
+    let foundedEntity = this.post.comments[index];
+    foundedEntity.nameAutor = emitData.value.autor;
+    foundedEntity.publishedDate = emitData.value.publishedDate;
+    foundedEntity.textComment = emitData.value.message;
+    this.post.comments[index] = foundedEntity;
+    console.log(this.post.comments[index]) // Update object
+    console.log(this.post.comments[0]) // tu tez 
+    console.table(this.post) /// A tu nie ma...
     this.config.edit = false;
   }
 
