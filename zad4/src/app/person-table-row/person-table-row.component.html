@@ -1,0 +1,37 @@
+<td>
+  {{model.id}}
+</td>
+<td>
+  {{model.firstname}}
+  <input *ngIf="state.showInput" type='text' [(ngModel)] ="model.firstname"/>
+</td>
+<td>
+  {{model.lastname}}
+  <input *ngIf="state.showInput" type='text' [(ngModel)] ="model.lastname" />
+</td>
+<td>
+  {{model.gender}}
+  <input *ngIf="state.showInput" type='text' [(ngModel)] ="model.gender" />
+</td>
+<td>
+  {{model.email}}
+  <input *ngIf="state.showInput" type='email' [(ngModel)] ="model.email" />
+</td>
+<td>
+  {{model.age}}
+  <input *ngIf="state.showInput" type='number' [(ngModel)] ="model.age" />
+</td>
+<td>
+  {{model.birthday | date:'yyyy-MM-dd'}}<!-- o tutaj -->
+  <input *ngIf="state.showInput" type="date" [(ngModel)] = "model.birthday" useValueAsDate/>
+</td>
+<td>
+  {{model.income | currency}}<!-- o tutaj -->
+  <input *ngIf="state.showInput" type='number' [(ngModel)] = "model.income" />
+</td>
+<td>
+  <div>
+    <button type="button" [attr.data-action] = "buttonActionUp" (click)="dispatchAction($event, model)" class='btn btn-default btn-md'>{{buttonUp}}</button>
+    <button type="button" [attr.data-action] = "buttonActionDown" (click)="dispatchAction($event, model)" class='btn btn-default btn-md'>{{buttonDown}}</button>
+  </div>
+</td>

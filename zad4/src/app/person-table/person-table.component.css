@@ -1,0 +1,7 @@
+label {
+  display: block;
+}
+
+.checkboxLabel label {
+  width: 100px;
+}
